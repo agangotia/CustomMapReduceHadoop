@@ -1,0 +1,15 @@
+Steps
+1. Write the code in HadoopMapreduceGenrator.
+2.Create the jar file.
+
+3.Place the input file to dfs
+/usr/local/hadoop$ bin/hadoop dfs -copyFromLocal /home/anu/DUMPMD5.csv /user/hduser/trial1
+
+4. view the file
+ bin/hadoop dfs -ls /user/hduser
+
+5.Run the map reduce task
+hduser@anu-R480-R431-R481:/usr/local/hadoop$ bin/hadoop jar /home/anu/wordcount.jar hadoop.mapreduce.WordCount /user/hduser/trial1 /user/hduser/trialout
+
+6.Output to Local file
+hduser@anu-R480-R431-R481:/usr/local/hadoop$ bin/hadoop -dfs cat /user/hduser/trialout/part-r-00000 > /home/anu/outHadoop.txt
