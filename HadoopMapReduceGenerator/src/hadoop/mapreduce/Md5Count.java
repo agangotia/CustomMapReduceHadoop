@@ -71,8 +71,10 @@ public class Md5Count
                 count++;
             }
             result.set(count+","+translations);
-            count=0;
+            if(count>1)
             context.write(key, result);
+            count=0;
+            
         }
     }
     public static void main(String[] args) throws Exception
